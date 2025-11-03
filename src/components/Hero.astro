@@ -310,8 +310,10 @@ import AnimatedBackground from "./AnimatedBackground.astro";
       ) as HTMLElement;
 
       if (heroElements) {
-        const opacity = 1 - scrolled / 500;
-        const scale = 1 - scrolled / 2000;
+        // Increased from 500 to 1200 for slower fade
+        // Features stay visible longer while scrolling
+        const opacity = 1 - scrolled / 1200;
+        const scale = 1 - scrolled / 3000;
         heroElements.style.opacity = Math.max(0, opacity).toString();
         heroElements.style.transform = `scale(${Math.max(0.9, scale)})`;
       }
