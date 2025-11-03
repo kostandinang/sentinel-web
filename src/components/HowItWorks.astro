@@ -57,101 +57,75 @@
           </div>
 
           <div class="setup-body">
-            <!-- Step 1: Download & Install -->
+            <!-- Coming Soon Notice -->
+            <div class="setup-step step-notice">
+              <div class="notice-banner">
+                <div class="notice-icon">📦</div>
+                <div class="notice-content">
+                  <div class="notice-title">Pre-built Binary Coming Soon</div>
+                  <div class="notice-text">
+                    Download from releases page - for now, build from source
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 1: Build in Xcode -->
             <div class="setup-step step-1">
               <div class="step-header">
                 <div class="step-indicator">
                   <span class="step-number">01</span>
-                  <span class="step-status installing">installing...</span>
+                  <span class="step-status configuring">building...</span>
                 </div>
               </div>
               <div class="command-line">
                 <span class="prompt">$</span>
                 <span
                   class="command typing-animation"
-                  data-text="brew install --cask sentinel"
-                  >brew install --cask sentinel</span
+                  data-text="open sentinel/sentinelApp.swift"
+                  >open sentinel/sentinelApp.swift</span
                 >
               </div>
               <div class="command-output">
                 <div class="output-line">
-                  ⚡ <span class="highlight">Download & Install</span>
+                  🔨 <span class="highlight">Build in Xcode</span>
                 </div>
-                <div class="output-line">📦 Installing Sentinel.app...</div>
+                <div class="output-line">Select sentinel scheme</div>
+                <div class="output-line">Press ⌘R to build and run</div>
                 <div class="output-line success">
-                  ✅ Installation complete in 30s
+                  ✅ App appears in menu bar
                 </div>
               </div>
             </div>
 
-            <!-- Step 2: Configure -->
+            <!-- Step 2: Configure Hooks -->
             <div class="setup-step step-2">
               <div class="step-header">
                 <div class="step-indicator">
                   <span class="step-number">02</span>
-                  <span class="step-status configuring">configuring...</span>
+                  <span class="step-status monitoring">configuring...</span>
                 </div>
               </div>
               <div class="command-line">
                 <span class="prompt">$</span>
                 <span
                   class="command typing-animation"
-                  data-text="cat > ~/.sentinel/config.json"
-                  >cat > ~/.sentinel/config.json</span
-                >
-              </div>
-              <div class="config-block">
-                <div class="config-line">
-                  <span class="json-key">"claude_api_key"</span>: <span
-                    class="json-string">"sk-ant-..."</span
-                  >,
-                </div>
-                <div class="config-line">
-                  <span class="json-key">"workspace"</span>: <span
-                    class="json-string">"~/projects"</span
-                  >,
-                </div>
-                <div class="config-line">
-                  <span class="json-key">"notifications"</span>: <span
-                    class="json-boolean">true</span
-                  >
-                </div>
-              </div>
-              <div class="command-output">
-                <div class="output-line">
-                  🔧 <span class="highlight">Configure Claude</span>
-                </div>
-                <div class="output-line success">
-                  ✅ Config saved - 3 lines added
-                </div>
-              </div>
-            </div>
-
-            <!-- Step 3: Start Monitoring -->
-            <div class="setup-step step-3">
-              <div class="step-header">
-                <div class="step-indicator">
-                  <span class="step-number">03</span>
-                  <span class="step-status monitoring">monitoring...</span>
-                </div>
-              </div>
-              <div class="command-line">
-                <span class="prompt">$</span>
-                <span
-                  class="command typing-animation"
-                  data-text="sentinel start --background"
-                  >sentinel start --background</span
+                  data-text="nano ~/.claude/settings.json"
+                  >nano ~/.claude/settings.json</span
                 >
               </div>
               <div class="command-output">
                 <div class="output-line">
-                  🚀 <span class="highlight">Start Monitoring</span>
+                  🔧 <span class="highlight">Configure Claude Hooks</span>
                 </div>
-                <div class="output-line">📡 Scanning for Claude agents...</div>
-                <div class="output-line">🤖 Found 3 active agents</div>
-                <div class="output-line">📊 Real-time monitoring enabled</div>
+                <div class="output-line">
+                  Add "hooks" property to settings.json
+                </div>
+                <div class="output-line">
+                  Copy from Sentinel/Resources/example-hooks.json
+                </div>
                 <div class="output-line success">
-                  ✅ Sentinel running in menu bar
+                  ✅ Ready to monitor sessions
                 </div>
               </div>
 
@@ -159,15 +133,15 @@
               <div class="live-indicators">
                 <div class="indicator active">
                   <span class="indicator-dot"></span>
-                  <span class="indicator-text">agent_001 • working</span>
-                </div>
-                <div class="indicator warning">
-                  <span class="indicator-dot"></span>
-                  <span class="indicator-text">agent_002 • tool_use</span>
+                  <span class="indicator-text">sentinel • running</span>
                 </div>
                 <div class="indicator success">
                   <span class="indicator-dot"></span>
-                  <span class="indicator-text">agent_003 • complete</span>
+                  <span class="indicator-text">hooks • configured</span>
+                </div>
+                <div class="indicator success">
+                  <span class="indicator-dot"></span>
+                  <span class="indicator-text">claude-code • ready</span>
                 </div>
               </div>
             </div>
@@ -868,6 +842,11 @@
     transform: translateY(20px);
   }
 
+  .setup-step.step-notice {
+    animation-delay: 0s;
+    margin-bottom: 24px;
+  }
+
   .setup-step.step-1 {
     animation-delay: 0.2s;
   }
@@ -876,15 +855,51 @@
     animation-delay: 0.6s;
   }
 
-  .setup-step.step-3 {
-    animation-delay: 1s;
-  }
-
   @keyframes stepReveal {
     to {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Notice Banner */
+  .notice-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(37, 99, 235, 0.05) 100%
+    );
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-left: 4px solid #3b82f6;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+
+  .notice-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .notice-content {
+    flex: 1;
+  }
+
+  .notice-title {
+    font-family: "Monaco", "Menlo", "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-bottom: 4px;
+  }
+
+  .notice-text {
+    font-family: "Monaco", "Menlo", "Courier New", monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .step-header {

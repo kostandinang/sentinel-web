@@ -68,6 +68,7 @@ sentinel-website/
 ## 📝 Customization
 
 Update the content in the component files (`src/components/`) to match your needs:
+
 - Hero section text and CTAs
 - Features list
 - How it works steps
