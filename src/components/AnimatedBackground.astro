@@ -1,0 +1,484 @@
+---
+---
+
+<div class="absolute inset-0 overflow-hidden">
+  <!-- Workflow visualization -->
+  <div class="workflow-container">
+    <!-- AI Agents in different states -->
+    <div class="agent-node agent-1">
+      <div class="agent-indicator thinking"></div>
+      <div class="agent-label">Agent 1</div>
+    </div>
+
+    <div class="agent-node agent-2">
+      <div class="agent-indicator working"></div>
+      <div class="agent-label">Agent 2</div>
+    </div>
+
+    <div class="agent-node agent-3">
+      <div class="agent-indicator completed"></div>
+      <div class="agent-label">Agent 3</div>
+    </div>
+
+    <!-- Central monitoring hub -->
+    <div class="monitoring-hub">
+      <div class="hub-core"></div>
+      <div class="hub-ring"></div>
+      <div class="hub-label">Sentinel</div>
+    </div>
+
+    <!-- Data flow connections -->
+    <div class="connection-flow flow-1">
+      <div class="flow-pulse"></div>
+    </div>
+    <div class="connection-flow flow-2">
+      <div class="flow-pulse"></div>
+    </div>
+    <div class="connection-flow flow-3">
+      <div class="flow-pulse"></div>
+    </div>
+
+    <!-- Notification indicators -->
+    <div class="notification-bubble notification-1">
+      <div class="notification-icon">✓</div>
+      <span>Task completed</span>
+    </div>
+
+    <div class="notification-bubble notification-2">
+      <div class="notification-icon">⚡</div>
+      <span>Agent started</span>
+    </div>
+  </div>
+
+  <!-- Subtle grid background -->
+  <div class="grid-overlay"></div>
+</div>
+
+<style>
+  .workflow-container {
+    position: absolute;
+    inset: 0;
+    opacity: 0.8;
+  }
+
+  /* Agent nodes */
+  .agent-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .agent-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .agent-indicator::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  .agent-indicator.thinking {
+    background: rgba(59, 130, 246, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  .agent-indicator.thinking::before {
+    background: #3b82f6;
+    box-shadow: 0 0 12px #3b82f6;
+  }
+
+  .agent-indicator.working {
+    background: rgba(251, 191, 36, 0.3);
+    border-color: rgba(251, 191, 36, 0.5);
+  }
+
+  .agent-indicator.working::before {
+    background: #fbbf24;
+    box-shadow: 0 0 12px #fbbf24;
+    animation: spin 1.5s linear infinite;
+  }
+
+  .agent-indicator.completed {
+    background: rgba(34, 197, 94, 0.3);
+    border-color: rgba(34, 197, 94, 0.5);
+  }
+
+  .agent-indicator.completed::before {
+    background: #22c55e;
+    box-shadow: 0 0 12px #22c55e;
+  }
+
+  .agent-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+
+  .agent-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+
+  .agent-2 {
+    top: 25%;
+    right: 20%;
+    animation-delay: 2s;
+  }
+
+  .agent-3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+
+  /* Monitoring hub */
+  .monitoring-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    will-change: transform;
+  }
+
+  .hub-core {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.4), rgba(59, 130, 246, 0.3));
+    border: 3px solid rgba(14, 165, 233, 0.6);
+    border-radius: 50%;
+    backdrop-filter: blur(15px);
+    box-shadow:
+      0 0 20px rgba(14, 165, 233, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    animation: hubPulse 4s ease-in-out infinite;
+    position: relative;
+  }
+
+  .hub-core::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: rgba(14, 165, 233, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  .hub-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(14, 165, 233, 0.6);
+    border-radius: 50%;
+    animation: rotate 8s linear infinite;
+  }
+
+  .hub-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+  }
+
+  /* Connection flows */
+  .connection-flow {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(14, 165, 233, 0.3),
+      transparent);
+    overflow: hidden;
+    border-radius: 1px;
+    will-change: transform;
+  }
+
+  .flow-pulse {
+    position: absolute;
+    top: -2px;
+    left: -20px;
+    width: 20px;
+    height: 6px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(14, 165, 233, 0.8),
+      transparent);
+    animation: flowTravel 4s linear infinite;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
+    will-change: transform, opacity;
+  }
+
+  .flow-1 {
+    top: 28%;
+    left: 20%;
+    width: 180px;
+    transform: rotate(15deg);
+  }
+
+  .flow-1 .flow-pulse {
+    animation-delay: 0s;
+  }
+
+  .flow-2 {
+    top: 35%;
+    right: 25%;
+    width: 200px;
+    transform: rotate(-20deg);
+  }
+
+  .flow-2 .flow-pulse {
+    animation-delay: 1s;
+  }
+
+  .flow-3 {
+    bottom: 38%;
+    left: 25%;
+    width: 160px;
+    transform: rotate(-15deg);
+  }
+
+  .flow-3 .flow-pulse {
+    animation-delay: 2s;
+  }
+
+  /* Notification bubbles */
+  .notification-bubble {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(23, 23, 23, 0.9);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: notificationAppear 6s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(10px);
+    will-change: transform, opacity;
+  }
+
+  .notification-icon {
+    width: 16px;
+    height: 16px;
+    background: rgba(34, 197, 94, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #22c55e;
+  }
+
+  .notification-1 {
+    top: 15%;
+    right: 15%;
+    animation-delay: 3s;
+  }
+
+  .notification-2 {
+    bottom: 15%;
+    right: 30%;
+    animation-delay: 1s;
+  }
+
+  .notification-2 .notification-icon {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+
+  /* Grid overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridFloat 20s linear infinite;
+    opacity: 0.6;
+    will-change: transform;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale3d(1.2, 1.2, 1);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 360deg);
+    }
+  }
+
+  @keyframes hubPulse {
+    0%, 100% {
+      transform: scale3d(1, 1, 1);
+      box-shadow:
+        0 0 20px rgba(14, 165, 233, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      transform: scale3d(1.05, 1.05, 1);
+      box-shadow:
+        0 0 25px rgba(14, 165, 233, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, 360deg);
+    }
+  }
+
+  @keyframes flowTravel {
+    0% {
+      left: -20px;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes notificationAppear {
+    0%, 90%, 100% {
+      opacity: 0;
+      transform: translate3d(0, 10px, 0);
+    }
+    10%, 80% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes gridFloat {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(60px, 60px, 0);
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .notification-bubble {
+      display: none;
+    }
+
+    .agent-label,
+    .hub-label {
+      display: none;
+    }
+
+    .agent-indicator {
+      width: 24px;
+      height: 24px;
+    }
+
+    .agent-indicator::before {
+      width: 6px;
+      height: 6px;
+    }
+
+    .hub-core {
+      width: 40px;
+      height: 40px;
+    }
+
+    .hub-ring {
+      width: 55px;
+      height: 55px;
+    }
+
+    .connection-flow {
+      height: 1px;
+    }
+
+    .flow-pulse {
+      width: 15px;
+      height: 4px;
+    }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .agent-node,
+    .agent-indicator::before,
+    .hub-core,
+    .hub-core::before,
+    .hub-ring,
+    .flow-pulse,
+    .notification-bubble,
+    .grid-overlay {
+      animation: none;
+    }
+  }
+</style>

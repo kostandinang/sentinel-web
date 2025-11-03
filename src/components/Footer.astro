@@ -1,0 +1,276 @@
+---
+---
+
+<footer class="py-20 px-4 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto relative z-20">
+    <div class="footer-container p-12 md:p-16">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="logo-container">
+              <svg class="w-10 h-10 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <span class="brand-text text-3xl font-bold text-white">Sentinel</span>
+          </div>
+          <p class="text-white/70 max-w-md leading-relaxed text-lg">
+            Real-time visibility into your AI agents. Built with Swift and SwiftUI for macOS.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-section">
+          <h3 class="section-title font-bold text-white mb-6 text-lg">Project</h3>
+          <ul class="space-y-4">
+            <li>
+              <a href="https://github.com/kostandinang/sentinel" target="_blank" class="footer-link">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kostandinang/sentinel/issues" target="_blank" class="footer-link">
+                Issues
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kostandinang/sentinel#readme" target="_blank" class="footer-link">
+                Documentation
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-section">
+          <h3 class="section-title font-bold text-white mb-6 text-lg">Resources</h3>
+          <ul class="space-y-4">
+            <li>
+              <a href="#how-it-works" class="footer-link">
+                How It Works
+              </a>
+            </li>
+            <li>
+              <a href="#coming-soon" class="footer-link">
+                What's Next
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/kostandinang/sentinel/blob/main/LICENSE" target="_blank" class="footer-link">
+                License
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom section -->
+      <div class="pt-12 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-white/60 text-sm leading-relaxed">
+          © 2024 Sentinel. Built with 
+          <a href="https://github.com/kostandinang" target="_blank" class="credit-link">
+            Claude Code
+          </a>
+          . Open source under MIT License.
+        </p>
+        <div class="flex gap-6">
+          <a 
+            href="https://github.com/kostandinang/sentinel" 
+            target="_blank"
+            class="social-link"
+            aria-label="GitHub"
+          >
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Footer Container */
+  .footer-container {
+    position: relative;
+    background: 
+      linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.9) 0%,
+        rgba(30, 41, 59, 0.85) 50%,
+        rgba(15, 23, 42, 0.9) 100%
+      );
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 24px 48px rgba(0, 0, 0, 0.3),
+      0 8px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .footer-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.05),
+      transparent
+    );
+    animation: footerShimmer 12s ease-in-out infinite;
+  }
+
+  /* Logo Container */
+  .logo-container {
+    width: 48px;
+    height: 48px;
+    background: 
+      linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.2) 0%,
+        rgba(147, 197, 253, 0.1) 100%
+      );
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      0 8px 16px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Brand Text */
+  .brand-text {
+    background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Footer Links */
+  .footer-link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transition: width 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #60a5fa;
+    transform: translateX(4px);
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  /* Credit Link */
+  .credit-link {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .credit-link:hover {
+    color: #93c5fd;
+  }
+
+  /* Social Links */
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .social-link:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #60a5fa;
+    transform: translateY(-4px);
+    box-shadow: 
+      0 12px 24px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  /* Footer Sections */
+  .footer-section {
+    position: relative;
+  }
+
+  .section-title {
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, transparent);
+  }
+
+  /* Animations */
+  @keyframes footerShimmer {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-container {
+      padding: 32px 24px;
+      border-radius: 24px;
+    }
+
+    .brand-text {
+      font-size: 1.75rem;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+    }
+  }
+</style>

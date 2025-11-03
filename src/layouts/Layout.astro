@@ -1,0 +1,377 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Monitor multiple AI agents in real-time from your macOS menu bar. Get notified when long-running tasks finish.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-neutral-950 text-neutral-100 relative overflow-x-hidden">
+    <!-- Animated gradient background -->
+    <div id="gradient-bg" class="fixed inset-0 opacity-30 pointer-events-none z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-500/35 via-cyan-500/25 to-indigo-500/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-tr from-sky-500/20 via-transparent to-blue-600/25"></div>
+      <div class="absolute top-0 left-0 w-full h-full">
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="gradient-orb gradient-orb-3"></div>
+      </div>
+
+      <!-- Storytelling shapes - AI Agent monitoring -->
+      <div class="story-elements">
+        <!-- Central monitoring hub -->
+        <div class="monitoring-hub">
+          <div class="hub-core"></div>
+          <div class="scanning-ring"></div>
+          <div class="hub-glow"></div>
+        </div>
+
+        <!-- AI Agent nodes with status indicators -->
+        <div class="ai-agent agent-1">
+          <div class="agent-status status-active"></div>
+          <div class="agent-data-stream"></div>
+          <div class="agent-glow"></div>
+        </div>
+        <div class="ai-agent agent-2">
+          <div class="agent-status status-warning"></div>
+          <div class="agent-data-stream"></div>
+          <div class="agent-glow"></div>
+        </div>
+        <div class="ai-agent agent-3">
+          <div class="agent-status status-active"></div>
+          <div class="agent-data-stream"></div>
+          <div class="agent-glow"></div>
+        </div>
+        <div class="ai-agent agent-4">
+          <div class="agent-status status-processing"></div>
+          <div class="agent-data-stream"></div>
+          <div class="agent-glow"></div>
+        </div>
+
+        <!-- Enhanced connection lines with data flow -->
+        <div class="connection-line line-1">
+          <div class="data-pulse pulse-1"></div>
+          <div class="line-glow"></div>
+        </div>
+        <div class="connection-line line-2">
+          <div class="data-pulse pulse-2"></div>
+          <div class="line-glow"></div>
+        </div>
+        <div class="connection-line line-3">
+          <div class="data-pulse pulse-3"></div>
+          <div class="line-glow"></div>
+        </div>
+        <div class="connection-line line-4">
+          <div class="data-pulse pulse-4"></div>
+          <div class="line-glow"></div>
+        </div>
+
+        <!-- Enhanced data flow particles -->
+        <div class="data-particle particle-1">
+          <div class="particle-trail"></div>
+        </div>
+        <div class="data-particle particle-2">
+          <div class="particle-trail"></div>
+        </div>
+        <div class="data-particle particle-3">
+          <div class="particle-trail"></div>
+        </div>
+        <div class="data-particle particle-4">
+          <div class="particle-trail"></div>
+        </div>
+        <div class="data-particle particle-5">
+          <div class="particle-trail"></div>
+        </div>
+        <div class="data-particle particle-6">
+          <div class="particle-trail"></div>
+        </div>
+
+        <!-- Modern network grid overlay -->
+        <div class="network-grid">
+          <div class="grid-line horizontal-1">
+            <div class="grid-pulse"></div>
+          </div>
+          <div class="grid-line horizontal-2">
+            <div class="grid-pulse"></div>
+          </div>
+          <div class="grid-line vertical-1">
+            <div class="grid-pulse"></div>
+          </div>
+          <div class="grid-line vertical-2">
+            <div class="grid-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Enhanced alert indicators -->
+        <div class="alert-indicator alert-1">
+          <div class="alert-ripple"></div>
+        </div>
+        <div class="alert-indicator alert-2">
+          <div class="alert-ripple"></div>
+        </div>
+
+        <!-- Floating data nodes -->
+        <div class="floating-node node-1"></div>
+        <div class="floating-node node-2"></div>
+        <div class="floating-node node-3"></div>
+      </div>
+    </div>
+
+    <!-- Content wrapper -->
+    <div class="relative z-10">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-optical-sizing: auto;
+  }
+
+  /* Gradient orbs */
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    mix-blend-mode: multiply;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .gradient-orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(14, 165, 233, 0.3) 50%, transparent 70%);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .gradient-orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(79, 70, 229, 0.25) 50%, transparent 70%);
+    top: 60%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+
+  .gradient-orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(8, 145, 178, 0.25) 50%, transparent 70%);
+    bottom: 10%;
+    left: 50%;
+    animation-delay: 4s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(10px) rotate(240deg);
+    }
+  }
+
+  /* Mouse follower gradient */
+  .mouse-gradient {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(14, 165, 233, 0.05) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    filter: blur(60px);
+    backdrop-filter: blur(1px);
+  }
+
+  #gradient-bg {
+    transition: transform 0.4s ease, filter 0.3s ease;
+    backdrop-filter: blur(0.5px);
+  }
+</style>
+
+<script>
+  // Mouse follower gradient
+  document.addEventListener('DOMContentLoaded', () => {
+    const mouseGradient = document.createElement('div');
+    mouseGradient.className = 'mouse-gradient';
+    mouseGradient.style.opacity = '0';
+    document.body.appendChild(mouseGradient);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    // Color variations based on position - refined blue shades
+    const getColorFromPosition = (x, y) => {
+      const normalizedX = x / window.innerWidth;
+      const normalizedY = y / window.innerHeight;
+
+      // More refined and minimal blue shade variations
+      const lightness = 55 + normalizedY * 15; // 55-70% lightness range (more conservative)
+      const saturation = 70 + normalizedX * 15; // 70-85% saturation range (more subtle)
+
+      // Focused blue hues - staying in cooler spectrum
+      const primaryHue = 215 + (normalizedX * 15); // Steel blue to sky blue (215-230)
+      const secondaryHue = 205 + (normalizedY * 20); // Deeper blue variations (205-225)
+      const tertiaryHue = 220 + ((normalizedX + normalizedY) * 8); // Minimal blue shifts (220-228)
+
+      return `radial-gradient(circle,
+        hsla(${primaryHue}, ${saturation}%, ${lightness}%, 0.06) 0%,
+        hsla(${secondaryHue}, ${Math.max(60, saturation - 8)}%, ${Math.max(50, lightness - 8)}%, 0.04) 40%,
+        hsla(${tertiaryHue}, ${Math.max(55, saturation - 15)}%, ${Math.max(45, lightness - 15)}%, 0.02) 60%,
+        transparent 70%)`;
+    };
+
+    // Update mouse position
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      mouseGradient.style.opacity = '1';
+
+      // Update gradient colors based on position
+      mouseGradient.style.background = getColorFromPosition(mouseX, mouseY);
+
+      // Scale effect based on movement speed - more minimal
+      const scale = 1 + Math.min(0.15, Math.abs(e.movementX + e.movementY) * 0.005);
+      mouseGradient.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    });
+
+    // Hide gradient when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      mouseGradient.style.opacity = '0';
+      mouseGradient.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    // Smooth animation
+    function animate() {
+      currentX += (mouseX - currentX) * 0.1;
+      currentY += (mouseY - currentY) * 0.1;
+
+      mouseGradient.style.left = currentX + 'px';
+      mouseGradient.style.top = currentY + 'px';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Dynamic gradient background shift with zoom
+    const gradientBg = document.getElementById('gradient-bg');
+    if (gradientBg) {
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+
+        // Calculate zoom based on distance from center
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const distanceFromCenter = Math.sqrt(
+          Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2)
+        );
+        const maxDistance = Math.sqrt(Math.pow(centerX, 2) + Math.pow(centerY, 2));
+        const zoomFactor = 1 + (distanceFromCenter / maxDistance) * 0.03; // Reduced from 0.1 to 0.03
+
+        gradientBg.style.transform = `translate(${x * 0.02}px, ${y * 0.02}px) scale(${zoomFactor})`; // Reduced movement
+
+        // More subtle color shift for background based on mouse position
+        const hueShift = (x + y) * 0.1; // Reduced from 0.3 to 0.1
+        const blueIntensity = 1 + (distanceFromCenter / maxDistance) * 0.05; // Reduced from 0.15 to 0.05
+        gradientBg.style.filter = `hue-rotate(${hueShift}deg) brightness(${blueIntensity}) saturate(${1 + (distanceFromCenter / maxDistance) * 0.08})`;
+
+        // Make story elements respond to mouse movement - more subtle
+        const storyElements = document.querySelector('.story-elements');
+        if (storyElements) {
+          const intensity = (distanceFromCenter / maxDistance) * 0.15; // Slightly increased for visibility
+          storyElements.style.opacity = 0.7 + intensity; // Base opacity increased to 0.7
+          storyElements.style.filter = `brightness(${1 + intensity * 0.8}) saturate(${1 + intensity * 0.6}) contrast(${1 + intensity * 0.2})`;
+
+          // Add microinteraction: speed up animations based on mouse movement
+          const speed = Math.min(2, 1 + intensity * 2);
+          storyElements.style.animationPlayState = 'running';
+          storyElements.style.animationDuration = `${4 / speed}s`;
+        }
+
+        // Microinteraction: enhance particles based on mouse position
+        const particles = document.querySelectorAll('.data-particle');
+        particles.forEach((particle, index) => {
+          const particleIntensity = intensity * (1 + index * 0.1);
+          particle.style.transform = `scale(${1 + particleIntensity * 0.5})`;
+          particle.style.boxShadow = `
+            0 0 ${8 + particleIntensity * 12}px rgba(14, 165, 233, ${0.6 + particleIntensity * 0.4}),
+            0 0 ${16 + particleIntensity * 24}px rgba(14, 165, 233, ${0.3 + particleIntensity * 0.3})
+          `;
+        });
+
+        // Microinteraction: enhance connection lines
+        const lines = document.querySelectorAll('.connection-line');
+        lines.forEach(line => {
+          const lineIntensity = intensity * 1.5;
+          line.style.boxShadow = `0 0 ${4 + lineIntensity * 8}px rgba(59, 130, 246, ${0.2 + lineIntensity * 0.3})`;
+        });
+      });
+
+      // Reset on mouse leave
+      document.addEventListener('mouseleave', () => {
+        gradientBg.style.transform = 'translate(0px, 0px) scale(1)';
+        gradientBg.style.filter = 'hue-rotate(0deg) brightness(1) saturate(1)';
+
+        const storyElements = document.querySelector('.story-elements');
+        if (storyElements) {
+          storyElements.style.opacity = '0.7'; // Reset to enhanced base opacity
+          storyElements.style.filter = 'brightness(1) saturate(1) contrast(1)';
+          storyElements.style.animationDuration = '4s';
+        }
+
+        // Reset microinteractions
+        const particles = document.querySelectorAll('.data-particle');
+        particles.forEach(particle => {
+          particle.style.transform = 'scale(1)';
+          particle.style.boxShadow = `
+            0 0 8px rgba(14, 165, 233, 0.6),
+            0 0 16px rgba(14, 165, 233, 0.3)
+          `;
+        });
+
+        const lines = document.querySelectorAll('.connection-line');
+        lines.forEach(line => {
+          line.style.boxShadow = '0 0 4px rgba(59, 130, 246, 0.2)';
+        });
+      });
+    }
+  });
+</script>

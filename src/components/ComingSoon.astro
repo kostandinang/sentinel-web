@@ -1,0 +1,452 @@
+---
+const features = [
+  {
+    title: 'Scale Unlimited',
+    description: '20+ agents? Easy. Individual status tracking. Crystal clear organization.',
+    status: 'In Development',
+    progress: 75,
+    quarter: 'Q4 2025'
+  },
+  {
+    title: 'Smart Notifications',
+    description: 'Rich summaries. Actionable alerts. Deep context. All in your notification center.',
+    status: 'Planned',
+    progress: 20,
+    quarter: 'Q1 2026'
+  },
+  {
+    title: 'Custom Themes',
+    description: 'Your workspace. Your colors. Light mode. Dark mode. Full customization.',
+    status: 'Planned',
+    progress: 5,
+    quarter: 'Q2 2026'
+  }
+];
+---
+
+<section id="coming-soon" class="py-24 px-4 bg-neutral-950">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section header -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full version-badge mb-8">
+        <svg class="w-4 h-4 text-primary-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        <span class="text-sm text-primary-400 font-semibold">Version 2.0</span>
+        <div class="w-2 h-2 rounded-full bg-primary-400 animate-ping"></div>
+      </div>
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-neutral-100 via-primary-200 to-neutral-400 bg-clip-text text-transparent animate-gradient-x">
+        What's Next?
+      </h2>
+      <p class="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        More power. Smarter alerts. Same simplicity.
+      </p>
+      
+      <!-- Roadmap Timeline -->
+      <div class="mt-16 flex items-center justify-center">
+        <div class="roadmap-container">
+          <div class="roadmap-line"></div>
+          <div class="roadmap-progress"></div>
+          {features.map((feature, index) => (
+            <div class={`roadmap-node roadmap-node-${index + 1}`} style={`left: ${(index + 1) * 25}%`}>
+              <div class="roadmap-dot">
+                <div class="roadmap-pulse"></div>
+              </div>
+              <div class="roadmap-label">
+                <span class="text-xs font-semibold text-primary-300">{feature.quarter}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div class="group upcoming-card" style={`animation-delay: ${index * 0.2}s`}>
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <span class="status-badge">{feature.status}</span>
+                <span class="quarter-badge">{feature.quarter}</span>
+              </div>
+              <div class="status-indicator">
+                <div class="status-pulse"></div>
+              </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container mb-6">
+              <div class="progress-bar">
+                <div class="progress-fill" style={`width: ${feature.progress}%`}></div>
+                <div class="progress-glow" style={`width: ${feature.progress}%`}></div>
+              </div>
+              <span class="progress-text">{feature.progress}%</span>
+            </div>
+            
+            <h3 class="text-xl font-semibold mb-4 text-neutral-100 group-hover:text-primary-300 transition-colors duration-300">
+              {feature.title}
+            </h3>
+            <p class="text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors duration-300">
+              {feature.description}
+            </p>
+            
+            <!-- Holographic accent -->
+            <div class="holographic-accent"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Gradient Animation */
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+
+  /* Roadmap Styles */
+  .roadmap-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 80px;
+  }
+
+  .roadmap-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(59, 130, 246, 0.2) 0%,
+      rgba(59, 130, 246, 0.8) 50%,
+      rgba(59, 130, 246, 0.2) 100%
+    );
+    transform: translateY(-50%);
+  }
+
+  .roadmap-progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    animation: roadmap-flow 3s ease-in-out infinite;
+  }
+
+  .roadmap-node {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .roadmap-dot {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border: 3px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    box-shadow: 
+      0 0 15px rgba(59, 130, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .roadmap-pulse {
+    position: absolute;
+    inset: -6px;
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .roadmap-label {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .roadmap-node-1 { animation-delay: 0s; }
+  .roadmap-node-2 { animation-delay: 0.5s; }
+  .roadmap-node-3 { animation-delay: 1s; }
+
+  /* Version Badge */
+  .version-badge {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.15) 0%,
+      rgba(37, 99, 235, 0.1) 100%
+    );
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow:
+      0 4px 12px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Upcoming Cards */
+  .upcoming-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(23, 23, 23, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0) 0%,
+      rgba(59, 130, 246, 0.3) 50%,
+      rgba(59, 130, 246, 0) 100%
+    );
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .upcoming-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow:
+      0 20px 40px rgba(59, 130, 246, 0.2),
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.6);
+  }
+
+  .upcoming-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  /* Progress Bar */
+  .progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .progress-bar {
+    position: relative;
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 2px;
+    transition: width 1s ease-out;
+    animation: progress-shimmer 2s ease-in-out infinite;
+  }
+
+  .progress-glow {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 8px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
+    border-radius: 4px;
+    filter: blur(4px);
+    transition: width 1s ease-out;
+  }
+
+  .progress-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #60a5fa;
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* Status Badges */
+  .status-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.2) 0%,
+      rgba(37, 99, 235, 0.15) 100%
+    );
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow:
+      0 2px 4px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+
+  .quarter-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(75, 85, 99, 0.3);
+    color: #9ca3af;
+    border: 1px solid rgba(75, 85, 99, 0.5);
+  }
+
+  .upcoming-card:hover .status-badge {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.3) 0%,
+      rgba(37, 99, 235, 0.2) 100%
+    );
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow:
+      0 4px 8px rgba(59, 130, 246, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Status Indicator */
+  .status-indicator {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background: rgba(59, 130, 246, 0.3);
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    box-shadow:
+      0 0 8px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .status-pulse {
+    position: absolute;
+    inset: -4px;
+    border: 2px solid rgba(59, 130, 246, 0.6);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Holographic Accent */
+  .holographic-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.6),
+      rgba(147, 51, 234, 0.6),
+      rgba(59, 130, 246, 0.6),
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: holographic-flow 4s ease-in-out infinite;
+  }
+
+  .upcoming-card:hover .holographic-accent {
+    opacity: 1;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes progress-shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes roadmap-flow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+  }
+
+  @keyframes holographic-flow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .upcoming-card {
+      padding: 1.5rem;
+    }
+    
+    .roadmap-container {
+      max-width: 400px;
+    }
+    
+    .roadmap-label {
+      font-size: 0.7rem;
+    }
+  }
+</style>
